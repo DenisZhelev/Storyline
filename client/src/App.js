@@ -12,6 +12,10 @@ import { Home } from './components/Home/Home.js';
 import { CreateStory } from './components/CreateStory/CreateStory.js';
 import { Catalog } from './components/Catalog/Catalog';
 import { StoryDetails } from './components/StoryDetails/StoryDetails';
+import { makeStyles } from '@material-ui/core/styles';
+//test
+import { Test } from './components/Test';
+import backgroundImage from './images/bak.jpg'
 
 const theme = createTheme({
   breakpoints: {
@@ -24,6 +28,17 @@ const theme = createTheme({
     },
   },
 });
+
+
+const useStyles = makeStyles({
+  root: {
+    backgroundImage: `url(${backgroundImage})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    height: '100vh',
+  },
+});
+
 
 function App() {
 const navigate = useNavigate(); 
@@ -52,18 +67,21 @@ const navigate = useNavigate();
     // redirect to cata;og
     navigate('/catalog');
   }
-
+  const classes = useStyles();
   return (
     <ThemeProvider theme={theme}>
-      <Navigation/>
-      <main id="main-content">
-        <Routes>
+     <Navigation/>
+      <main className={classes.root} >
+        <Routes>'classes' is not defined.eslintno-undef
           <Route path='/' element = {<Home/>}/>
           <Route path='/login' element = {<Login/>}/>
           <Route path='/register' element = {<Register/>}/>
           <Route path ='/create' element = {<CreateStory onCreateStorySubmit={onCreateStorySubmit}/>}/>
           <Route path ='/catalog' element = {<Catalog  storyes = {storyes}/>}/>
           <Route path ='/catalog/:storyId' element = {<StoryDetails />} />
+
+          <Route path='/test' element = {<Test/>}/>
+
         </Routes>
       </main>
     </ThemeProvider>
@@ -71,3 +89,4 @@ const navigate = useNavigate();
 }
 
 export default App;
+
