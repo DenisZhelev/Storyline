@@ -134,7 +134,7 @@ const useStyles = makeStyles((theme) => ({
 
 export const Login = () => {
   const { onLoginSubmit } = useContext(AuthContext);
-  const { values, changeHandler} = useForm({
+  const { values, changeHandler ,onSubmit} = useForm({
     [LoginFormKeys.Email]: '',
     [LoginFormKeys.Password]: '',
 }, onLoginSubmit);
@@ -186,7 +186,7 @@ export const Login = () => {
         <Typography variant="h5" align="center">
           Login
         </Typography>
-        <form className={classes.form} onSubmit={onLoginSubmit}>
+        <form className={classes.form} method = "POST" onSubmit={onSubmit}>
           <TextField
             label="Email"
             variant="outlined"
