@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react';
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import { Routes , Route, useNavigate } from 'react-router-dom';
 
-import * as storyService from './services/storyService'
+import * as storyService from './services/storyService';
+import { AuthContext } from './contexts/AuthContext';
 
 import { Navigation } from "./components/Navigation/Navigation.js";
 import { Login } from "./components/Login/Login.js";
@@ -52,6 +53,7 @@ const navigate = useNavigate();
   // },[]);
 
   const [storyes, setStory] = useState([]);
+  const [auth, setAuth] = useState({});
 
   useEffect(() => {
     storyService.getAll()
@@ -67,8 +69,15 @@ const navigate = useNavigate();
     // redirect to cata;og
     navigate('/catalog');
   }
+
+  const onLoginSubmit = async(data) => {
+    console.log(data);
+  };
+
+
   const classes = useStyles();
   return (
+    <AuthContext.Provider value = {{onLoginSubmit}}>
     <ThemeProvider theme={theme}>
      <Navigation/>
       <main className={classes.root} >
@@ -85,6 +94,7 @@ const navigate = useNavigate();
         </Routes>
       </main>
     </ThemeProvider>
+    </AuthContext.Provider>
   );
 }
 
