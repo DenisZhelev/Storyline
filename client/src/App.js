@@ -3,9 +3,10 @@ import { useState, useEffect } from 'react';
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import { Routes , Route, useNavigate } from 'react-router-dom';
 
-import * as storyService from './services/storyService';
+import {storyServiceFactory} from './services/storyService'
+import { authServiceFactory } from './services/authService';
 import { AuthContext } from './contexts/AuthContext';
-import * as authService from './services/authService'
+import { useService } from './hooks/useService';
 
 import { Navigation } from "./components/Navigation/Navigation.js";
 import { Login } from "./components/Login/Login.js";
@@ -56,6 +57,8 @@ const navigate = useNavigate();
 
   const [storyes, setStory] = useState([]);
   const [auth, setAuth] = useState({});
+  const storyService = storyServiceFactory(auth.accessToken);
+  const authService = authServiceFactory(auth.accessToken);
 
   useEffect(() => {
     storyService.getAll()
@@ -105,7 +108,7 @@ const navigate = useNavigate();
 
   const classes = useStyles();
 
-  const context = 
+  const contextValues = 
   {
       onLoginSubmit,
       onRegisterSubmit,
@@ -116,7 +119,7 @@ const navigate = useNavigate();
       isAuthenticated: !!auth.accessToken,
   }
   return (
-    <AuthContext.Provider value = {context}>
+    <AuthContext.Provider value = {contextValues}>
     <ThemeProvider theme={theme}>
      <Navigation/>
       <main className={classes.root} >

@@ -114,6 +114,8 @@ import { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Paper, Typography, TextField, Button } from '@material-ui/core';
 
+import { useForm   } from '../../hooks/useForm';
+
 const useStyles = makeStyles((theme) => ({
   container: {
     display: 'flex',
@@ -138,21 +140,15 @@ const useStyles = makeStyles((theme) => ({
 
 export const CreateStory = ({onCreateStorySubmit}) => {
   const classes = useStyles();
-  const [values, setValues] = useState({
+  const {values,changeHandler,onSubmit } = useForm({
     title:"",
     category:"",
     level:"",
     image:"",
     story:"",
-  });
-  const onChangeHandler = (e) => {
-    setValues(state => ({...state, [e.target.name]: e.target.value}))
-  }
-  const onSubmit = (e) => {
-    e.preventDefault();
-    console.log(values);
-    onCreateStorySubmit(values);
-  }
+  },onCreateStorySubmit);
+  
+
   // const [title, setTitle] = useState('');
   // const [category, setCategory] = useState('');
   // const [level, setLevel] = useState('');
@@ -185,24 +181,25 @@ export const CreateStory = ({onCreateStorySubmit}) => {
   // };
 
   return (
-    <form className={classes.form} onSubmit={(e) => onSubmit(e,values)}>
+    <form className={classes.form} method='POST' onSubmit={onSubmit}>
   <label htmlFor="title">Title:</label>
-  <input id="title" type="text" value={values.title} onChange = {onChangeHandler} name = "title" />
+  <input id="title" type="text" value={values.title} onChange = {changeHandler} name = "title" />
 
   <label htmlFor="category">Category:</label>
-  <input id="category" type="text" value={values.category} onChange = {onChangeHandler} name = "category" />
+  <input id="category" type="text" value={values.category} onChange = {changeHandler} name = "category" />
 
   <label htmlFor="level">Level:</label>
-  <input id="level" type="text" value={values.level} onChange = {onChangeHandler} name = "level" />
+  <input id="level" type="text" value={values.level} onChange = {changeHandler} name = "level" />
 
   <label htmlFor="image">Image URL:</label>
-  <input id="image" type="text" value={values.image} onChange = {onChangeHandler} name = "image" />
+  <input id="image" type="text" value={values.image} onChange = {changeHandler} name = "image" />
 
   <label htmlFor="story">Story:</label>
-  <textarea id="story" rows="4" value={values.story} onChange = {onChangeHandler} name = "story"></textarea>
+  <textarea id="story" rows="4" value={values.story} onChange = {changeHandler} name = "story"></textarea>
 
   <button className={classes.button} type="submit">Submit</button>
 </form>
+
 
   );
 };

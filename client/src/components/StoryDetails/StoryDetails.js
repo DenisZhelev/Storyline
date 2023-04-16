@@ -1,7 +1,8 @@
 import { useParams } from "react-router-dom";
-import * as storyService from "../../services/storyService.js" 
+import { storyServiceFactory } from "../../services/storyService.js";
 import { useEffect, useState } from "react";
 import * as  commentService from "../../services/commentService.js"
+import { useService } from "../../hooks/useService.js";
 
 export const StoryDetails = () => {
     const [username, setUsername] = useState("");
@@ -9,6 +10,8 @@ export const StoryDetails = () => {
     const [comments, setComments] = useState([]);
     const { storyId } = useParams()
     const [story, setStory] = useState({});
+    const storyService = useService(storyServiceFactory);
+
     useEffect(() => {
         storyService.getOne(storyId)
         .then(result => {

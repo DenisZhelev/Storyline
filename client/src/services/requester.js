@@ -1,4 +1,4 @@
-const request = async (method, url, data) => {
+const requester = async (method, token, url, data) => {
     const options = {};
 
     if (method !== 'GET') {
@@ -13,54 +13,49 @@ const request = async (method, url, data) => {
         }
     }
 
-
-//     const serializedAuth = localStorage.getItem('auth');
-//     if (serializedAuth) {
-//         const auth = JSON.parse(serializedAuth);
+    // const serializedAuth = localStorage.getItem('auth');
+    // if (serializedAuth) {
+    //     const auth = JSON.parse(serializedAuth);
         
-//         if (auth.accessToken) {
-//             options.headers = {
-//                 ...options.headers,
-//                 'X-Authorization': auth.accessToken,
-//             };
-//         }
-//     }
+    //     if (auth.accessToken) {
+    //         options.headers = {
+    //             ...options.headers,
+    //             'X-Authorization': auth.accessToken,
+    //         };
+    //     }
+    // }
 
-//     const response = await fetch(url, options);
-
-//     if (response.status === 204) {
-//         return {};
-//     }
-
-//     const result = await response.json();
-
-//     if (!response.ok) {
-//         throw result;
-//     }
-
-//     return result;
-// };
-
-// export const requestFactory = () => {
-//     return {
-//         get: requester.bind(null, 'GET'),
-//         post: requester.bind(null, 'POST'),
-//         put: requester.bind(null, 'PUT'),
-//         patch: requester.bind(null, 'PATCH'),
-//         delete: requester.bind(null, 'DELETE'),
-//     }
-// };
-
-    const response = await fetch(url,options);
-    try{
-    const result = await response.json();
-    return result;
-    }catch(error){
-    return {};
+    if(token)
+    {
+        options.headers = {
+            ...options.headers,
+            'X-Authorization': token,
+        }
     }
-}
-export const get = request.bind(null, 'GET');
-export const post = request.bind(null, 'POST');
-export const put = request.bind(null, 'PUT');
-export const patch =  request.bind(null, 'PATCH');
-export const del = request.bind(null, 'DELETE');
+
+    // 
+
+    const response = await fetch(url, options);
+
+    if (response.status === 204) {
+        return {};
+    }
+
+    const result = await response.json();
+
+    if (!response.ok) {
+        throw result;
+    }
+
+    return result;
+};
+
+export const requestFactory = (token) => {
+    return {
+        get: requester.bind(null, token, 'GET'),
+        post: requester.bind(null, token, 'POST'),
+        put: requester.bind(null, token, 'PUT'),
+        patch: requester.bind(null, token, 'PATCH'),
+        delete: requester.bind(null, token, 'DELETE'),
+    }
+};

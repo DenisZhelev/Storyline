@@ -34,7 +34,7 @@ export const Navigation = () => {
           ) : (
             <>
             <p>{userEmail}</p>
-            <Nav.Link href="#">Logout</Nav.Link>
+            <Nav.Link href="/logout">Logout</Nav.Link>
             </>
           )}
         </Nav>
