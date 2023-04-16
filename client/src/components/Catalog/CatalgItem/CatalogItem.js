@@ -128,7 +128,7 @@ export const CatalogItem = ({_id, title, category, level, image, story }) => {
           See More
     </Link> */}
     <div className={classes.buttonContainer}>
-    <Link to={`/catalog/details/${_id}`}>
+    <Link to={`/catalog/${_id}`}>
      <button className={classes.button}>
     See More
    </button>

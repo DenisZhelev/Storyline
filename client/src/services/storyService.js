@@ -7,6 +7,7 @@ import { requestFactory } from './requester';
 const baseUrl = 'http://localhost:3030/data/stories'
 
 export const storyServiceFactory = (token) => {
+    console.log(token)
     const request = requestFactory(token);
 
     const getAll = async () => {
@@ -32,7 +33,7 @@ export const storyServiceFactory = (token) => {
     
     const edit = (storyId, data) => request.put(`${baseUrl}/${storyId}`, data);
 
-    const deleteGame = (storyId) => request.delete(`${baseUrl}/${storyId}`);
+    const deleteStory = (storyId) => request.delete(`${baseUrl}/${storyId}`);
 
 
     return {
@@ -40,7 +41,7 @@ export const storyServiceFactory = (token) => {
         getOne,
         create,
         edit,
-        delete: deleteGame,
+        delete: deleteStory,
     };
 }
 // import * as request  from "./requester";

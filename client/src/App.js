@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import { Routes , Route, useNavigate } from 'react-router-dom';
 
-import {storyServiceFactory} from './services/storyService'
+import { storyServiceFactory} from './services/storyService'
 import { authServiceFactory } from './services/authService';
 import { AuthContext } from './contexts/AuthContext';
 import { useService } from './hooks/useService';
@@ -62,10 +62,10 @@ const navigate = useNavigate();
 
   useEffect(() => {
     storyService.getAll()
-      .then(storyes => { 
-        setStory(storyes);
+      .then(result => { 
+        setStory(result);
       });
-  }, []);
+  },[]);
 
   const onCreateStorySubmit = async (data) => {
     const newStory = await storyService.create(data)

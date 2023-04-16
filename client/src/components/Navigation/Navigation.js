@@ -16,25 +16,25 @@ export const Navigation = () => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg" expanded={expanded} fixed="top">
     <Container>
-      <Navbar.Brand href="/">My App</Navbar.Brand>
+      <Navbar.Brand to="/">My App</Navbar.Brand>
       <Navbar.Toggle aria-controls="navbar-nav" onClick={handleToggle} />
       <Navbar.Collapse id="navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="/">All games</Nav.Link>
+          <Link to="/">All games</Link>
           {isAuthenticated && (
-            <Nav.Link href="/create">Create game</Nav.Link>
+            <Link to="/create">Create game</Link>
           )}
         </Nav>
         <Nav>
           {!isAuthenticated ? ( 
             <>
-              <Nav.Link as={Link} to="/login">Login</Nav.Link>
-              <Nav.Link href="/register">Register</Nav.Link>
+              <Link as={Link} to="/login">Login</Link>
+              <Link to="/register">Register</Link>
             </>
           ) : (
             <>
             <p>{userEmail}</p>
-            <Nav.Link href="/logout">Logout</Nav.Link>
+            <Link to="/logout">Logout</Link>
             </>
           )}
         </Nav>
