@@ -1,39 +1,82 @@
-import { requestFactory } from './requester';
+// import { requestFactory } from './requester';
 
 // const baseUrl = process.env.NODE_ENV === 'development' 
 //     ? 'http://localhost:3030'
 //     : 'http://localhost:3030'; // TODO: Add server url when deployed
-// const url = `${baseUrl}/data/stories`;
-const baseUrl = 'http://localhost:3030/data/stories'
+// const url = `${baseUrl}/data/games`;
+
+// export const gameServiceFactory = (token) => {
+//     const request = requestFactory(token);
+
+//     const getAll = async () => {
+//         const result = await request.get(url);
+//         const games = Object.values(result);
+    
+//         return games;
+//     };
+    
+//     const getOne = async (gameId) => {
+//         const result = await request.get(`${url}/${gameId}`);
+    
+//         return result;
+//     };
+    
+//     const create = async (gameData) => {
+//         const result = await request.post(url, gameData);
+    
+//         console.log(result);
+    
+//         return result;
+//     };
+    
+//     const edit = (gameId, data) => request.put(`${url}/${gameId}`, data);
+
+//     const deleteGame = (gameId) => request.delete(`${url}/${gameId}`);
+
+
+//     return {
+//         getAll,
+//         getOne,
+//         create,
+//         edit,
+//         delete: deleteGame,
+//     };
+// }
+
+import { requestFactory } from './requester';
+
+const baseUrl = process.env.NODE_ENV === 'development' 
+    ? 'http://localhost:3030'
+    : 'http://localhost:3030'; // TODO: Add server url when deployed
+const url = `${baseUrl}/data/storys`;
 
 export const storyServiceFactory = (token) => {
-    console.log(token)
     const request = requestFactory(token);
 
     const getAll = async () => {
-        const result = await request.get(baseUrl);
-        const stories = Object.values(result);
+        const result = await request.get(url);
+        const storys = Object.values(result);
     
-        return stories;
-    };  
+        return storys;
+    };
     
     const getOne = async (storyId) => {
-        const result = await request.get(`${baseUrl}/${storyId}`);
+        const result = await request.get(`${url}/${storyId}`);
     
         return result;
     };
     
     const create = async (storyData) => {
-        const result = await request.post(baseUrl, storyData);
+        const result = await request.post(url, storyData);
     
         console.log(result);
     
         return result;
     };
     
-    const edit = (storyId, data) => request.put(`${baseUrl}/${storyId}`, data);
+    const edit = (storyId, data) => request.put(`${url}/${storyId}`, data);
 
-    const deleteStory = (storyId) => request.delete(`${baseUrl}/${storyId}`);
+    const deleteStory = (storyId) => request.delete(`${url}/${storyId}`);
 
 
     return {
@@ -44,33 +87,3 @@ export const storyServiceFactory = (token) => {
         delete: deleteStory,
     };
 }
-// import * as request  from "./requester";
-
-// const baseUrl = "http://localhost:3030/data/stories";
-
-// export const getAll = async () => {
-//     const result = await request.get(baseUrl);
-//     const storyes = Object.values(result);
-//     console.log(storyes);
-//     return storyes;
-// };
-// export const getOne = async (storyId) => {
-//     const result = await request.get(`${baseUrl}/${storyId}`);
-//     return result;
-// }
-
-// export const create = async (storyData) => {
-//         console.log (storyData)
-//         console.log("x")
-//         const result = await request.post(baseUrl, storyData);
-    
-//         console.log(result);
-    
-//         return result;
-//     };
-
-//     //json Store
-//     export const addComment = async(storyId,data) => {
-//         const result = await request.post(`${baseUrl}/${storyId}/comments`);
-//         return result;
-//     }

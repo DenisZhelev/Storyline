@@ -1,147 +1,243 @@
+// import { useContext } from "react";
+// import { Link } from "react-router-dom";
+// import { makeStyles } from "@material-ui/core/styles";
+// import {
+//   Container,
+//   Paper,
+//   Typography,
+//   TextField,
+//   Button
+// } from "@material-ui/core";
 
-import { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { Container, Paper, Typography, TextField, Button } from '@material-ui/core';
-import { useContext } from 'react';
-import { useForm } from '../../hooks/useForm';
-import { AuthContext } from '../../contexts/AuthContext';
+// import { useForm } from "../../hooks/useForm";
+// import { AuthContext } from "../../contexts/AuthContext";
+
+// const useStyles = makeStyles((theme) => ({
+//   container: {
+//     display: "flex",
+//     justifyContent: "center",
+//     alignItems: "center",
+//     height: "100vh",
+//   },
+//   paper: {
+//     padding: theme.spacing(3),
+//     display: "flex",
+//     flexDirection: "column",
+//     alignItems: "center",
+//   },
+//   form: {
+//     width: "100%",
+//     marginTop: theme.spacing(1),
+//   },
+//   submit: {
+//     margin: theme.spacing(3, 0, 2),
+//   },
+// }));
+
+// export const Register = () => {
+//   const classes = useStyles();
+//   const { onRegisterSubmit } = useContext(AuthContext);
+//   const { values, changeHandler, onSubmit } = useForm(
+//     {
+//       email: "",
+//       password: "",
+//       confirmPassword: "",
+//     },
+//     onRegisterSubmit
+//   );
+
+//   return (
+//     <Container className={classes.container} maxWidth="xs">
+//       <Paper className={classes.paper}>
+//         <Typography component="h1" variant="h5">
+//           Register
+//         </Typography>
+//         <form className={classes.form} onSubmit={onSubmit}>
+//           <TextField
+//             variant="outlined"
+//             margin="normal"
+//             required
+//             fullWidth
+//             id="email"
+//             label="Email Address"
+//             name="email"
+//             autoComplete="email"
+//             autoFocus
+//             value={values.email}
+//             onChange={changeHandler}
+//           />
+//           <TextField
+//             variant="outlined"
+//             margin="normal"
+//             required
+//             fullWidth
+//             name="password"
+//             label="Password"
+//             type="password"
+//             id="password"
+//             autoComplete="current-password"
+//             value={values.password}
+//             onChange={changeHandler}
+//           />
+//           <TextField
+//             variant="outlined"
+//             margin="normal"
+//             required
+//             fullWidth
+//             name="confirmPassword"
+//             label="Confirm Password"
+//             type="password"
+//             id="confirmPassword"
+//             autoComplete="current-password"
+//             value={values.confirmPassword}
+//             onChange={changeHandler}
+//           />
+//           <Button
+//             type="submit"
+//             fullWidth
+//             variant="contained"
+//             color="primary"
+//             className={classes.submit}
+//           >
+//             Register
+//           </Button>
+//           <Typography variant="body2" align="center">
+//             Already have an account? <Link to="/login">Sign in</Link>
+//           </Typography>
+//         </form>
+//       </Paper>
+//     </Container>
+//   );
+// };
+
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
+import {
+  Container,
+  Paper,
+  Typography,
+  TextField,
+  Button
+} from "@material-ui/core";
+
+import { useForm } from "../../hooks/useForm";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100vh',
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100vh",
   },
   paper: {
-    padding: theme.spacing(4),
-    borderRadius: theme.shape.borderRadius,
+    padding: theme.spacing(3),
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
   form: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: theme.spacing(2),
+    width: "100%",
+    marginTop: theme.spacing(1),
   },
-  button: {
-    marginTop: theme.spacing(2),
+  submit: {
+    margin: theme.spacing(3, 0, 2),
   },
 }));
 
-const RegisterFormKeys = {
-  Username: 'username',
-  Email: 'email',
-  Password: 'password',
-  ConfirmPassword: 'confirmPassword',
-};
-
 export const Register = () => {
-  const {onRegisterSubmit} = useContext(AuthContext);
-  const {values,changeHandler,onSubmit} = useForm({
-    [RegisterFormKeys.Username]: '',
-    [RegisterFormKeys.Email]: '',
-    [RegisterFormKeys.Password]: '',
-  },onRegisterSubmit);
   const classes = useStyles();
-  // const [username, setUsername] = useState('');
-  // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
-  // const [confirmPassword, setConfirmPassword] = useState('');
-  // const [errors, setErrors] = useState({});
-
-  // const handleUsernameChange = (event) => {
-  //   setUsername(event.target.value);
-  // };
-
-  // const handleEmailChange = (event) => {
-  //   setEmail(event.target.value);
-  // };
-
-  // const handlePasswordChange = (event) => {
-  //   setPassword(event.target.value);
-  // };
-
-  // const handleConfirmPasswordChange = (event) => {
-  //   setConfirmPassword(event.target.value);
-  // };
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   const errors = {};
-  //   if (!username) {
-  //     errors.username = 'Please enter a username';
-  //   }
-  //   if (!email) {
-  //     errors.email = 'Please enter an email';
-  //   } else if (!/\S+@\S+\.\S+/.test(email)) {
-  //     errors.email = 'Please enter a valid email address';
-  //   }
-  //   if (!password) {
-  //     errors.password = 'Please enter a password';
-  //   }
-  //   if (!confirmPassword) {
-  //     errors.confirmPassword = 'Please confirm your password';
-  //   } else if (password !== confirmPassword) {
-  //     errors.confirmPassword = 'Passwords do not match';
-  //   }
-  //   setErrors(errors);
-  //   if (Object.keys(errors).length === 0) {
-  //     // Handle register logic here
-  //   }
-  // };
+  const { onRegisterSubmit } = useContext(AuthContext);
+  const { values, changeHandler, onSubmit } = useForm(
+    {
+      username: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    },
+    onRegisterSubmit
+  );
 
   return (
     <Container className={classes.container} maxWidth="xs">
       <Paper className={classes.paper}>
-        <Typography variant="h5" align="center">
+        <Typography component="h1" variant="h5">
           Register
         </Typography>
         <form className={classes.form} onSubmit={onSubmit}>
-           <TextField
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="username"
             label="Username"
+            name="username"
+            autoComplete="username"
+            autoFocus
+            value={values.username}
+            onChange={changeHandler}
+          />
+          <TextField
             variant="outlined"
+            margin="normal"
+            required
+            fullWidth
             type="text"
-            name={RegisterFormKeys.Username}
-            value={values[RegisterFormKeys.Username]}
+            id="email"
+            label="Email Address"
+            name="email"
+            autoComplete="email"
+            value={values.email}
             onChange={changeHandler}
-            // error={!!errors.username}
-            // helperText={errors.username}
           />
           <TextField
-            label="Email"
             variant="outlined"
-            type="email"
-            name={RegisterFormKeys.Email}
-            value={values[RegisterFormKeys.Email]}
-            onChange={changeHandler}
-            // error={!!errors.email}
-            // helperText={errors.email}
-          />
-          <TextField
+            margin="normal"
+            required
+            fullWidth
+            name="password"
             label="Password"
-            variant="outlined"
             type="password"
-            name={RegisterFormKeys.Password}
-            value={values[RegisterFormKeys.Password]}
+            id="password"
+            autoComplete="current-password"
+            value={values.password}
             onChange={changeHandler}
-            // error={!!errors.password}
-            // helperText={errors.password}
           />
           <TextField
-            label="Confirm Password"
             variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            name="confirmPassword"
+            label="Confirm Password"
             type="password"
-            name={RegisterFormKeys.ConfirmPassword}
-            value={values[RegisterFormKeys.ConfirmPassword]}
+            id="confirmPassword"
+            autoComplete="current-password"
+            value={values.confirmPassword}
             onChange={changeHandler}
-            // onChange={handleConfirmPasswordChange}
-            // error={!!errors.confirmPassword}
-            // helperText={errors.confirmPassword}
           />
-          <Button className={classes.button} variant="contained" color="primary" type="submit">
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+          >
             Register
           </Button>
+          <Typography variant="body2" align="center">
+            Already have an account? <Link to="/login">Sign in</Link>
+          </Typography>
         </form>
       </Paper>
     </Container>
- );
+  );
 };
+
+
+
+
+
+

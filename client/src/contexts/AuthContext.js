@@ -45,7 +45,6 @@ export const AuthProvider = ({
 
     const onLogout = async () => {
         await authService.logout();
-
         setAuth({});
     };
 
@@ -53,6 +52,7 @@ export const AuthProvider = ({
         onLoginSubmit,
         onRegisterSubmit,
         onLogout,
+        username: auth.username,
         userId: auth._id,
         token: auth.accessToken,
         userEmail: auth.email,
@@ -73,8 +73,3 @@ export const useAuthContext = () => {
 
     return context;
 };
-
-
-// import { createContext, useState, useContext } from 'react';
-
-// export const AuthContext = createContext();

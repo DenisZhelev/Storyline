@@ -1333,34 +1333,74 @@
         }
     };
     var seedData = {
-        games: {
-            "ff436770-76c5-40e2-b231-77409eda7a61": {
-                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
-                "title": "CoverFire",
-                "category": "Action",
-                "maxLevel": "70",
-                "imageUrl": "/images/CoverFire.png",
-                "summary": "Best action shooter game, easy controls, realistic 3D graphics and fun offline missions. Get your best shooting gun and take to action!",
-                "_createdOn": 1617194128618,
-            },
-            "1840a313-225c-416a-817a-9954d4609f7c": {
-                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
-                "title": "MineCraft",
-                "category": "Arcade",
-                "maxLevel": "250",
-                "imageUrl": "/images/MineCraft.png",
-                "summary": "Set in a world where fantasy creatures live side by side with humans. A human cop is forced to work with an Orc to find a weapon everyone is prepared to kill for. Set in a world where fantasy creatures live side by side with humans. A human cop is forced to work with an Orc to find a weapon everyone is prepared to kill for.",
-                "_createdOn": 1617194210928,
-            },
+        storys: {
+            // "ff436770-76c5-40e2-b231-77409eda7a61": {
+            //     "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+            //     "title": "CoverFire",
+            //     "category": "Action",
+            //     "maxLevel": "70",
+            //     "imageUrl": "/images/CoverFire.png",
+            //     "summary": "Best action shooter game, easy controls, realistic 3D graphics and fun offline missions. Get your best shooting gun and take to action!",
+            //     "_createdOn": 1617194128618,
+            // },
+            // "1840a313-225c-416a-817a-9954d4609f7c": {
+            //     "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+            //     "title": "MineCraft",
+            //     "category": "Arcade",
+            //     "maxLevel": "250",
+            //     "imageUrl": "/images/MineCraft.png",
+            //     "summary": "Set in a world where fantasy creatures live side by side with humans. A human cop is forced to work with an Orc to find a weapon everyone is prepared to kill for. Set in a world where fantasy creatures live side by side with humans. A human cop is forced to work with an Orc to find a weapon everyone is prepared to kill for.",
+            //     "_createdOn": 1617194210928,
+            // },
+            // "126777f5-3277-42ad-b874-76d043b069cb": {
+            //     "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+            //     "title": "Zombie Lang",
+            //     "category": "Vertical Shooter",
+            //     "maxLevel": "100",
+            //     "imageUrl": "/images/ZombieLang.png",
+            //     "summary": "With it’s own unique story, set between the events of the first movie, Zombieland: Double Tap- Road Trip is a ridiculously fun top-down twin-stick shooter featuring local co-op multiplayer for up to four players. Play as your favorite heroes from the original — Tallahassee, Columbus, Wichita and Little Rock — as well as new unlockable characters from the upcoming sequel.  The game embraces the game-like elements seen in the film by  incorporating everything from the “Rules” to “Zombie Kill of the Week”.  Use your special abilities, an arsenal of weapons and the essential Zombieland rules for survival to stay alive against huge numbers of uniquely grotesque and dangerous undead monstrosities in Zombieland: Double Tap- Road Trip’s story-based campaign mode, wave-based horde mode, and boss battles.",
+            //     "_createdOn": 1617194295474,
+            // }
             "126777f5-3277-42ad-b874-76d043b069cb": {
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
-                "title": "Zombie Lang",
-                "category": "Vertical Shooter",
-                "maxLevel": "100",
-                "imageUrl": "/images/ZombieLang.png",
-                "summary": "With it’s own unique story, set between the events of the first movie, Zombieland: Double Tap- Road Trip is a ridiculously fun top-down twin-stick shooter featuring local co-op multiplayer for up to four players. Play as your favorite heroes from the original — Tallahassee, Columbus, Wichita and Little Rock — as well as new unlockable characters from the upcoming sequel.  The game embraces the game-like elements seen in the film by  incorporating everything from the “Rules” to “Zombie Kill of the Week”.  Use your special abilities, an arsenal of weapons and the essential Zombieland rules for survival to stay alive against huge numbers of uniquely grotesque and dangerous undead monstrosities in Zombieland: Double Tap- Road Trip’s story-based campaign mode, wave-based horde mode, and boss battles.",
+                "ownerUsename" : "Peter",
+                "title": "I got kidnaped",
+                "category": "horror",
+                "preview": "A samall story of me being kidnaped",
+                "imageUrl": "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aHVtYW58ZW58MHx8MHx8&w=1000&q=80",
+                "story": "With it’s own unique story, set between the events of the first movie, Zombieland: Double Tap- Road Trip is a ridiculously fun top-down twin-stick shooter featuring local co-op multiplayer for up to four players. Play as your favorite heroes from the original — Tallahassee, Columbus, Wichita and Little Rock — as well as new unlockable characters from the upcoming sequel.  The game embraces the game-like elements seen in the film by  incorporating everything from the “Rules” to “Zombie Kill of the Week”.  Use your special abilities, an arsenal of weapons and the essential Zombieland rules for survival to stay alive against huge numbers of uniquely grotesque and dangerous undead monstrosities in Zombieland: Double Tap- Road Trip’s story-based campaign mode, wave-based horde mode, and boss battles.",
                 "_createdOn": 1617194295474,
-            }
+            },
+            "045de282-9a62-4c80-aa90-b975df26d504": {
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "ownerUsename" : "Peter",
+                "title": "The Abandoned House",
+                "category": "horror",
+                "preview": "A group of teenagers decide to explore an abandoned house.",
+                "imageUrl": "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aHVtYW58ZW58MHx8MHx8&w=1000&q=80",
+                "story": "A group of five teenagers, all brave but reckless, decide to explore an abandoned house located deep in the woods. As they explore the house, strange and terrifying things start to happen, and they soon realize they are not alone in the house. Will they be able to escape alive, or will they fall victim to the evil that lurks within?",
+                "_createdOn": 1632938907435
+              },
+              "57bfdb15-4a32-4a70-a1f4-3a3b8f1072ab": {
+                "_ownerId": "3f8b7c12-2d91-43c8-8c8c-97d77416f1d7",
+                "ownerUsename" : "Peter",
+                "title": "Lost in the Wilderness",
+                "category": "adventure",
+                "preview": "A young couple gets lost in the wilderness during a camping trip.",
+                "imageUrl": "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aHVtYW58ZW58MHx8MHx8&w=1000&q=80",
+                "story": "A young couple, Jack and Emily, decide to go on a camping trip in the wilderness. However, things take a turn for the worse when they get lost and their supplies start to run out. As they struggle to survive, they encounter various challenges, from dangerous animals to treacherous terrain. Will they be able to find their way back to civilization, or will they succumb to the wilderness?",
+                "_createdOn": 1623787531411
+              },
+              "8a6cefe7-1204-4b3a-9c4b-16667b0baa12": {
+                "_ownerId": "2c0e68d7-0341-46b9-9e83-07dbd7da3e29",
+                "ownerUsename" : "Peter",
+                "title": "The Curse of the Ancient Tomb",
+                "category": "mystery",
+                "preview": "A team of archaeologists discover an ancient tomb with a deadly curse.",
+                "imageUrl": "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aHVtYW58ZW58MHx8MHx8&w=1000&q=80",
+                "story": "A team of archaeologists, led by Professor Jones, discover an ancient tomb buried deep in the desert. However, they soon realize that the tomb is cursed, and anyone who enters it will meet a gruesome fate. As they try to uncover the secrets of the tomb, they are beset by various traps and obstacles, and they must use all their wits to stay alive. Will they be able to break the curse and escape the tomb, or will they become its latest victims?",
+                "_createdOn": 1608459821099
+              },
         },
         comments: {
         

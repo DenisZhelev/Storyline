@@ -1,55 +1,47 @@
+// import { useGameContext } from "../../contexts/StoryContext";
 // import { CatalogItem } from "./CatalgItem/CatalogItem";
 
-// export const Catalog = ({storyes}) => {
-//     return (
-//       <div id="box">
-//         <h1>Catalog</h1>
-//         {storyes.map(x => <CatalogItem key = {x._id} {...x}/>)}
-//         {storyes.lenght === 0 && <h3>Nothing</h3>}
+// import useStyles from './CatalgItem/styles';
+
+// export const Catalog = () => {
+//   const classes = useStyles();
+//   const { games } = useGameContext();
+
+//   return (
+//     <section id="catalog-page">
+//       <h1>All Games</h1>
+//       <div className={classes.container}>
+//          <div className={classes.grid}>
+//         {games.map((game) => (
+//           <CatalogItem key={game._id} {...game} />
+//         ))}
 //       </div>
-//     );
-//   }
-  
-import { makeStyles } from '@material-ui/core/styles';
+//         </div>
+//       {games.length === 0 && <h3 className="no-articles">No articles yet</h3>}
+//     </section>
+//   );
+// };
+
+import { useStoryContext } from "../../contexts/StoryContext";
 import { CatalogItem } from "./CatalgItem/CatalogItem";
-import Grid from '@material-ui/core/Grid';
 
-const useStyles = makeStyles((theme) => ({
-  box: {
-    margin: 'auto',
-    padding: theme.spacing(2),
-    width: '90%',
-  },
-  catalogItem: {
-    width: 300,
-    margin: theme.spacing(2),
-  },
-  [`@media (max-width: ${theme.breakpoints.values.sm}px)`]: {
-    catalogItem: {
-      width: '100%',
-      margin: theme.spacing(1, 0),
-    },
-  },
-}));
+import useStyles from './CatalgItem/styles';
 
-export const Catalog = ({storyes}) => {
+export const Catalog = () => {
   const classes = useStyles();
+  const { storys } = useStoryContext();
 
   return (
-    <div className={classes.box}>
-      <h1>Catalog</h1>
-      <Grid container spacing={2} justify="center">
-        {storyes.map(x => (
-          <Grid item xs={12} sm={6} md={4} key={x._id}>
-            <CatalogItem
-              {...x}
-              className={classes.catalogItem}
-            />
-          </Grid>
+    <section id="catalog-page">
+      <h1>All Storys</h1>
+      <div className={classes.container}>
+         <div className={classes.grid}>
+        {storys.map((story) => (
+          <CatalogItem key={story._id} {...story} />
         ))}
-        {storyes.length === 0 && <h3>Nothing</h3>}
-      </Grid>
-    </div>
+      </div>
+        </div>
+      {storys.length === 0 && <h3 className="no-articles">No articles yet</h3>}
+    </section>
   );
-}
-
+};
