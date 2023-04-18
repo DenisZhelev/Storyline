@@ -1,161 +1,105 @@
-// import { useEffect } from "react";
-// import { useParams } from "react-router-dom";
-// import { useGameContext } from "../../contexts/StoryContext";
-
-// import { useForm } from "../../hooks/useForm";
-// import { useService } from "../../hooks/useService";
-// import { gameServiceFactory } from "../../services/storyService";
-
-// export const EditGame = () => {
-//     const { onGameEditSubmit } = useGameContext();
-//     const { gameId } = useParams();
-//     const gameService = useService(gameServiceFactory);
-//     const { values, changeHandler, onSubmit, changeValues } = useForm({
-//         _id: '',
-//         title: '',
-//         category: '',
-//         maxLevel: '',
-//         imageUrl: '',
-//         summary: '',
-//     }, onGameEditSubmit);
-
-//     useEffect(() => {
-//         gameService.getOne(gameId)
-//             .then(result => {
-//                 changeValues(result);
-//             });
-//     }, [gameId]);
-
-//     return (
-//         <section id="edit-page" className="auth">
-//             <form id="edit" method="post" onSubmit={onSubmit}>
-//                 <div className="container">
-
-//                     <h1>Edit Game</h1>
-//                     <label htmlFor="leg-title">Legendary title:</label>
-//                     <input
-//                         type="text"
-//                         id="title"
-//                         name="title"
-//                         value={values.title}
-//                         onChange={changeHandler}
-//                     />
-
-//                     <label htmlFor="category">Category:</label>
-//                     <input
-//                         type="text"
-//                         id="category"
-//                         name="category"
-//                         value={values.category}
-//                         onChange={changeHandler}
-//                     />
-
-//                     <label htmlFor="levels">MaxLevel:</label>
-//                     <input
-//                         type="number"
-//                         id="maxLevel"
-//                         name="maxLevel"
-//                         min="1"
-//                         value={values.maxLevel}
-//                         onChange={changeHandler}
-//                     />
-
-//                     <label htmlFor="game-img">Image:</label>
-//                     <input
-//                         type="text"
-//                         id="imageUrl"
-//                         name="imageUrl"
-//                         value={values.imageUrl}
-//                         onChange={changeHandler}
-//                     />
-
-//                     <label htmlFor="summary">Summary:</label>
-//                     <textarea name="summary" id="summary" value={values.summary} onChange={changeHandler}></textarea>
-//                     <input className="btn submit" type="submit" value="Edit Game" />
-
-//                 </div>
-//             </form>
-//         </section>
-//     );
-// };
 
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useStoryContext } from "../../contexts/StoryContext";
-
 import { useForm } from "../../hooks/useForm";
 import { useService } from "../../hooks/useService";
 import { storyServiceFactory } from "../../services/storyService";
+import { makeStyles } from "@material-ui/core/styles";
+import {
+  TextField,
+  Button,
+  Container,
+  Typography,
+  TextareaAutosize 
+} from "@material-ui/core";
+
+import useStyles from './styles';
 
 export const EditStory = () => {
-    const { onStoryEditSubmit } = useStoryContext();
-    const { storyId } = useParams();
-    const storyService = useService(storyServiceFactory);
-    const { values, changeHandler, onSubmit, changeValues } = useForm({
-        _id: '',
-        title: '',
-        category: '',
-        maxLevel: '',
-        imageUrl: '',
-        summary: '',
-    }, onStoryEditSubmit);
+  const { onStoryEditSubmit } = useStoryContext();
+  const { storyId } = useParams();
+  const storyService = useService(storyServiceFactory);
+  const {
+    values,
+    changeHandler,
+    onSubmit,
+    changeValues,
+  } = useForm(
+    {
+      _id: "",
+      title: "",
+      category: "",
+      preview: "",
+      imageUrl: "",
+      story: "",
+    },
+    onStoryEditSubmit
+  );
 
-    useEffect(() => {
-        storyService.getOne(storyId)
-            .then(result => {
-                changeValues(result);
-            });
-    }, [storyId]);
+  const classes = useStyles();
 
-    return (
-        <section id="edit-page" className="auth">
-            <form id="edit" method="post" onSubmit={onSubmit}>
-                <div className="container">
+  useEffect(() => {
+    storyService.getOne(storyId).then((result) => {
+      changeValues(result);
+    });
+  }, [storyId]);
 
-                    <h1>Edit Story</h1>
-                    <label htmlFor="leg-title">Legendary title:</label>
-                    <input
-                        type="text"
-                        id="title"
-                        name="title"
-                        value={values.title}
-                        onChange={changeHandler}
-                    />
-
-                    <label htmlFor="category">Category:</label>
-                    <input
-                        type="text"
-                        id="category"
-                        name="category"
-                        value={values.category}
-                        onChange={changeHandler}
-                    />
-
-                    <label htmlFor="levels">MaxLevel:</label>
-                    <input
-                        type="number"
-                        id="maxLevel"
-                        name="maxLevel"
-                        min="1"
-                        value={values.maxLevel}
-                        onChange={changeHandler}
-                    />
-
-                    <label htmlFor="story-img">Image:</label>
-                    <input
-                        type="text"
-                        id="imageUrl"
-                        name="imageUrl"
-                        value={values.imageUrl}
-                        onChange={changeHandler}
-                    />
-
-                    <label htmlFor="summary">Summary:</label>
-                    <textarea name="summary" id="summary" value={values.summary} onChange={changeHandler}></textarea>
-                    <input className="btn submit" type="submit" value="Edit Story" />
-
-                </div>
-            </form>
-        </section>
-    );
+  return (
+    <Container maxWidth="md" className={classes.container}>
+    <Typography variant="h4" className={classes.title}>Edit Story</Typography>
+    <form className={classes.form} onSubmit={onSubmit}>
+        <TextField 
+            fullWidth
+            label="Image URL"
+            name="imageUrl"
+            value={values.imageUrl}
+            onChange={changeHandler}
+            className={classes.textField}
+        />
+        <TextField 
+            fullWidth
+            label="Title"
+            name="title"
+            value={values.title}
+            onChange={changeHandler}
+            className={classes.textField}
+        />
+        <TextField 
+            fullWidth
+            label="Category"
+            name="category"
+            value={values.category}
+            onChange={changeHandler}
+            className={classes.textField}
+        />
+        <TextField 
+            fullWidth
+            label="Preview"
+            name="preview"
+            value={values.preview}
+            onChange={changeHandler}
+            className={classes.textField}
+        />
+        <TextareaAutosize
+            aria-label="story"
+            placeholder="Tell your story"
+            name="story"
+            value={values.story}
+            onChange={changeHandler}
+            minRows={10}
+            style={{ width: '100%' }}
+            className={classes.textField}
+        />
+        <Button 
+            variant="contained" 
+            color="primary" 
+            className={classes.submitButton} 
+            type="submit"
+        >
+            SAVE CHANGES
+        </Button>
+    </form>
+</Container>
+  );
 };

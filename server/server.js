@@ -1321,11 +1321,18 @@
     var protectedData = {
         users: {
             "35c62d76-8152-4626-8712-eeb96381bea8": {
+                username:"Peter",
                 email: "peter@abv.bg",
                 hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
             },
             "847ec027-f659-4086-8032-5173e2f9c93a": {
+                username:"john",
                 email: "john@abv.bg",
+                hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
+            },
+            "847ec027-f659-4086-8032-514562f9c93a": {
+                username:"deko",
+                email: "deko@abv.bg",
                 hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
             }
         },
@@ -1361,19 +1368,19 @@
             //     "summary": "With it’s own unique story, set between the events of the first movie, Zombieland: Double Tap- Road Trip is a ridiculously fun top-down twin-stick shooter featuring local co-op multiplayer for up to four players. Play as your favorite heroes from the original — Tallahassee, Columbus, Wichita and Little Rock — as well as new unlockable characters from the upcoming sequel.  The game embraces the game-like elements seen in the film by  incorporating everything from the “Rules” to “Zombie Kill of the Week”.  Use your special abilities, an arsenal of weapons and the essential Zombieland rules for survival to stay alive against huge numbers of uniquely grotesque and dangerous undead monstrosities in Zombieland: Double Tap- Road Trip’s story-based campaign mode, wave-based horde mode, and boss battles.",
             //     "_createdOn": 1617194295474,
             // }
-            "126777f5-3277-42ad-b874-76d043b069cb": {
-                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
-                "ownerUsename" : "Peter",
-                "title": "I got kidnaped",
-                "category": "horror",
-                "preview": "A samall story of me being kidnaped",
-                "imageUrl": "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aHVtYW58ZW58MHx8MHx8&w=1000&q=80",
-                "story": "With it’s own unique story, set between the events of the first movie, Zombieland: Double Tap- Road Trip is a ridiculously fun top-down twin-stick shooter featuring local co-op multiplayer for up to four players. Play as your favorite heroes from the original — Tallahassee, Columbus, Wichita and Little Rock — as well as new unlockable characters from the upcoming sequel.  The game embraces the game-like elements seen in the film by  incorporating everything from the “Rules” to “Zombie Kill of the Week”.  Use your special abilities, an arsenal of weapons and the essential Zombieland rules for survival to stay alive against huge numbers of uniquely grotesque and dangerous undead monstrosities in Zombieland: Double Tap- Road Trip’s story-based campaign mode, wave-based horde mode, and boss battles.",
-                "_createdOn": 1617194295474,
-            },
+            // "126777f5-3277-42ad-b874-76d043b069cb": {
+            //     "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+            //     "ownerUsername" : "Peter",
+            //     "title": "I got kidnaped",
+            //     "category": "horror",
+            //     "preview": "A samall story of me being kidnaped",
+            //     "imageUrl": "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aHVtYW58ZW58MHx8MHx8&w=1000&q=80",
+            //     "story": "With it’s own unique story, set between the events of the first movie, Zombieland: Double Tap- Road Trip is a ridiculously fun top-down twin-stick shooter featuring local co-op multiplayer for up to four players. Play as your favorite heroes from the original — Tallahassee, Columbus, Wichita and Little Rock — as well as new unlockable characters from the upcoming sequel.  The game embraces the game-like elements seen in the film by  incorporating everything from the “Rules” to “Zombie Kill of the Week”.  Use your special abilities, an arsenal of weapons and the essential Zombieland rules for survival to stay alive against huge numbers of uniquely grotesque and dangerous undead monstrosities in Zombieland: Double Tap- Road Trip’s story-based campaign mode, wave-based horde mode, and boss battles.",
+            //     "_createdOn": 1617194295474,
+            // },
             "045de282-9a62-4c80-aa90-b975df26d504": {
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
-                "ownerUsename" : "Peter",
+                "ownerUsername" : "SahVB",
                 "title": "The Abandoned House",
                 "category": "horror",
                 "preview": "A group of teenagers decide to explore an abandoned house.",
@@ -1383,7 +1390,7 @@
               },
               "57bfdb15-4a32-4a70-a1f4-3a3b8f1072ab": {
                 "_ownerId": "3f8b7c12-2d91-43c8-8c8c-97d77416f1d7",
-                "ownerUsename" : "Peter",
+                "ownerUsername" : "JEMMY",
                 "title": "Lost in the Wilderness",
                 "category": "adventure",
                 "preview": "A young couple gets lost in the wilderness during a camping trip.",
@@ -1393,7 +1400,7 @@
               },
               "8a6cefe7-1204-4b3a-9c4b-16667b0baa12": {
                 "_ownerId": "2c0e68d7-0341-46b9-9e83-07dbd7da3e29",
-                "ownerUsename" : "Peter",
+                "ownerUsername": "Bimko",
                 "title": "The Curse of the Ancient Tomb",
                 "category": "mystery",
                 "preview": "A team of archaeologists discover an ancient tomb with a deadly curse.",
