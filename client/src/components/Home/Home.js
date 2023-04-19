@@ -33,11 +33,11 @@ export const Home = () => {
       </div>
 
       <div id="home-page">
-        <h1>Latest Stories</h1>
+        {/* <h1>Latest Stories</h1> */}
 
-        <div className={classes.latestStoriesContainer}>
+        {/* <div className={classes.latestStoriesContainer}>
           {latestThreeStories.map(story => <LatestStory key={story._id} {...story} onLikeClick={onLikeClick} />)}
-        </div>
+        </div> */}
 
         {latestStories.length === 0 && <p className="no-articles">No stories yet</p>}
       </div>

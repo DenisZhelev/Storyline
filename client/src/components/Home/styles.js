@@ -1,14 +1,15 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-    welcomeMessage: {
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        flexDirection: "column",
-        marginTop: theme.spacing(4),
-        marginBottom: theme.spacing(4),
-      },
+  welcomeMessage: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "column",
+    marginTop: theme.spacing(4),
+    marginBottom: theme.spacing(4),
+    height: "100vh" 
+  },
       welcomeTitle: {
         fontSize: "2.5rem",
         fontWeight: 700,

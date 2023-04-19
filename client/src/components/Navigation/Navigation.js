@@ -9,7 +9,7 @@ import useStyles from './styles';
 
 export const Navigation = () => {
   const [expanded, setExpanded] = useState(false);
-  const { isAuthenticated , username } = useContext(AuthContext);
+  const { isAuthenticated , username ,userId } = useContext(AuthContext);
   const classes = useStyles();
 
   const handleToggle = () => {
@@ -35,7 +35,7 @@ export const Navigation = () => {
               </>
             ) : (
               <>
-              <Link className={classes.navLink} to="/">Hello, {username}</Link>
+              <Link className={classes.navLink} to = {`/user/${userId}`}>Hello, {username}</Link>
               <Link className={classes.navLink} to="/logout">Logout</Link>
               </>
             )}
